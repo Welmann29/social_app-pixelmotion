@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,9 @@ Route::post('/logout', [UserController::class, 'logout'])->middleware('loggedInC
 Route::get('/create-post', [BlogController::class, 'showCreatePage'])->middleware('loggedInCheck');
 Route::post('/create-post', [BlogController::class, 'createNewPost'])->middleware('loggedInCheck');
 Route::get('/post/{post}', [BlogController::class, 'viewPost'])->middleware('loggedInCheck');
+Route::delete('/post/{post}', [BlogController::class, 'delete'])->middleware('can:delete,post');
+Route::get('/post/{post}/edit', [BlogController::class, 'editPost'])->middleware('can:update,post');
+Route::put('/post/{post}', [BlogController::class, 'update'])->middleware('can:update,post');
 
 // Profile routes
-Route::get('/profile/{user}', []);
+Route::get('/profile/{user:username}', [ProfileController::class, 'profile']);
