@@ -13,6 +13,8 @@ Route::get('/', [HomeController::class, 'homePage'])->name('login');
 Route::post('/register', [UserController::class, 'register'])->middleware('guest');
 Route::post('/login', [UserController::class, 'login'])->middleware('guest');
 Route::post('/logout', [UserController::class, 'logout'])->middleware('loggedInCheck');
+Route::get('/manage-avatar', [UserController::class, 'showAvatarForm'])->middleware('loggedInCheck');
+Route::post('/manage-avatar', [UserController::class, 'savePicture'])->middleware('loggedInCheck');
 
 // Blog routes
 Route::get('/create-post', [BlogController::class, 'showCreatePage'])->middleware('loggedInCheck');
