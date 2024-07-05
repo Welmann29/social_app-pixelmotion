@@ -23,6 +23,7 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'avatar'
     ];
 
     protected function avatar() : Attribute {
@@ -53,4 +54,13 @@ class User extends Authenticatable
     public function posts() {
         return $this->hasMany(Post::class, 'user_id');
     }
+
+    public function followers() {
+        return $this->hasMany(Follow::class, 'followeduser');
+    }
+
+    public function following() {
+        return $this->hasMany(Follow::class, 'user_id');
+    }
+
 }

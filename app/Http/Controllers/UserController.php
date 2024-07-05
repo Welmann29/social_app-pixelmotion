@@ -19,6 +19,7 @@ class UserController extends Controller
         $fields = $request->validated();
 
         $fields['password'] = bcrypt($fields['password']);
+        $fields['avatar'] = '';
 
         $newUser = User::create($fields);
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -26,3 +27,9 @@ Route::put('/post/{post}', [BlogController::class, 'update'])->middleware('can:u
 
 // Profile routes
 Route::get('/profile/{user:username}', [ProfileController::class, 'profile']);
+Route::get('/profile/{user:username}/followers', [ProfileController::class, 'profileFollowers']);
+Route::get('/profile/{user:username}/following', [ProfileController::class, 'profileFollowing']);
+
+// Follow routes
+Route::post('/create-follow/{user:username}', [FollowController::class, 'createFollow'])->middleware('loggedInCheck');
+Route::post('/remove-follow/{user:username}', [FollowController::class, 'removeFollow'])->middleware('loggedInCheck');
