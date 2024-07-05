@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout docTitle="New Post">
     <div class="container py-md-5 container--narrow">
         <div class="col d-flex justify-content-end">
             <a href="/" class="btn btn-danger">Cancel</a>

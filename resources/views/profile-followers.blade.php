@@ -1,4 +1,4 @@
-<x-profile :user="$user" :alreadyFollowed="$alreadyFollowed">
+<x-profile :user="$user" :alreadyFollowed="$alreadyFollowed" docTitle="{{$user->username}}'s Profile">
     <div class="list-group">
       @foreach($user->followers()->latest()->get() as $follower)
       <a href="/profile/{{$follower->follower->username}}" class="list-group-item list-group-item-action">

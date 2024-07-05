@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout docTitle="New Avatar">
     <div class="container container--narrow py-md-5">
         <div class="col d-flex justify-content-end">
             <a href="/profile/{{auth()->user()->username}}" class="btn btn-danger">Cancel</a>

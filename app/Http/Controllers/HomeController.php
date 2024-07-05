@@ -10,7 +10,7 @@ class HomeController extends Controller
     
     public function homePage() {
         if (auth()->check()) {
-            return view('home-feed');
+            return view('home-feed', ['feedPosts' => auth()->user()->feedPosts()->latest()->paginate(10)]);
         } else {
             return view('home');
         }
