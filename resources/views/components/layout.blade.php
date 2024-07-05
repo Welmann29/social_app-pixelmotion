@@ -17,9 +17,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/main.css" />
+    <style>
+      main {
+        padding-top: var(--header-height);
+      }
+    </style>
   </head>
   <body>
-    <header class="header-bar mb-3 bg-dark">
+    <header class="header-bar mb-3 bg-dark fixed-top" id="main-header">
       <div class="container d-flex flex-column flex-md-row align-items-center p-3">
         <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">PixelMotion Test</a></h4>
 
@@ -68,7 +73,9 @@
     </div>
     @endif
 
+    <main>
     {{$slot}}
+    </main>
 
     <!-- footer begins -->
     <footer class="border-top text-center small text-muted py-3">
@@ -80,6 +87,9 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
       <script>
         $('[data-toggle="tooltip"]').tooltip()
+      </script>
+      <script>
+        document.documentElement.style.setProperty('--header-height', document.getElementById('main-header').offsetHeight + 'px');
       </script>
     </body>
 </html>
