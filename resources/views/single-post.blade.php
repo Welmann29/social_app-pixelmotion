@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :docTitle="$post->title">
     <div class="container py-md-5 container--narrow">
         <div class="d-flex justify-content-between">
           <h2>{{$post->title}}</h2>
@@ -15,8 +15,8 @@
         </div>
   
         <p class="text-muted small mb-4">
-          <a href="#"><img class="avatar-tiny" src="{{$post->userOwner->avatar}}" /></a>
-          Posted by <a href="#">{{$post->userOwner->username}}</a> on {{$post->created_at->format('n/j/Y')}}
+          <a href="/profile/{{$post->userOwner->username}}"><img class="avatar-tiny" src="{{$post->userOwner->avatar}}" /></a>
+          Posted by <a href="/profile/{{$post->userOwner->username}}">{{$post->userOwner->username}}</a> on {{$post->created_at->format('n/j/Y')}}
         </p>
   
         <div class="body-content">
