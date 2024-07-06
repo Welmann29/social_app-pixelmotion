@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  piselmotion-app:
+    image: welmann2903/pixelmotion-test:latest
+    container_name: pixelmotion-app
+    ports:
+      - "8000:80"
+  db:
+    image: mysql
+    container_name: some-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+      - MYSQL_DATABASE=simple_app
