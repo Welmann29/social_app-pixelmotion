@@ -48,4 +48,10 @@ class BlogController extends Controller
     public function viewPost(Post $post) {
         return view('single-post', ['post' => $post]);
     }
+
+    public function search($term) {
+        $posts = Post::search($term)->get();
+        $posts->load('userOwner:id,username,avatar');
+        return $posts;
+    }
 }
